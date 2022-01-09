@@ -33,7 +33,7 @@ spec:
               printf 'path "secret/*"{\ncapabilities=["read"]\n}' | vault policy write demo-policy - &&\
               vault auth enable kubernetes &&\
               vault write auth/kubernetes/config\
-                kubernetes_host="https://dnademos-argocd-8d11e9-f590a6ae.hcp.eastus.azmk8s.io:443" \
+                kubernetes_host="https://gitops-dns-a3b88616.hcp.eastus2.azmk8s.io:443" \
                 token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
                 kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
                 disable_iss_validation=true && \
