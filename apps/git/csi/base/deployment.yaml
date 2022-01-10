@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-csi
+  labels:
+    app: my-csi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-csi
+  template:
+    metadata:
+      labels:
+        app: my-csi
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: my-csi
+        image: maximiano86/secret-demo:0
+        ports:
+        - containerPort: 3000   
+        volumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true       
+      volumes:
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "vault-database"      
