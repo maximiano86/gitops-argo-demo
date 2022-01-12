@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-csi
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-csi
+        env:
+        - name: CM_VALUE
+          valueFrom:
+            configMapKeyRef:
+              name: csi-configmap
+              key: value1
