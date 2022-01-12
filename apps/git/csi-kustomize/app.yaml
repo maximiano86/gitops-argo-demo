@@ -8,6 +8,6 @@ spec:
     server: https://kubernetes.default.svc 
   project: default
   source:
-    repoURL: 'https://github.com/maximiano85/gitops-argo-demo.git'
+    repoURL: 'https://github.com/maximiano86/gitops-argo-demo.git'
     targetRevision: HEAD
     path: apps/git/csi-kustomize/overlay/dev
