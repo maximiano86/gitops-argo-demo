@@ -1,0 +1,12 @@
+apiVersion: policy.kubevault.com/v1alpha1
+kind: VaultPolicy
+metadata:
+  name: my-kubevault-policy
+  namespace: demo
+spec:
+  vaultRef:
+    name: vault
+  policyDocument: |
+    path "secret/data/kubevault-pass" {
+      capabilities = ["read"]
+    }
