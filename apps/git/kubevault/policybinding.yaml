@@ -1,0 +1,16 @@
+piVersion: policy.kubevault.com/v1alpha1
+kind: VaultPolicyBinding
+metadata:
+  name: my-kubevault-role
+  namespace: demo
+spec:
+  vaultRef:
+    name: vault
+  policies:
+    - ref: my-kubevault-policy
+  subjectRef:
+    kubernetes:
+      serviceAccountNames:
+        - "my-kubevault-sa"
+      serviceAccountNamespaces:
+        - "demo"
