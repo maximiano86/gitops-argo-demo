@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-gatekeeper
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc 
+  project: default
+  source:
+    repoURL: 'https://github.com/maximiano86/gitops-argo-demo'
+    targetRevision: HEAD
+    path: apps/git/gatekeeper/rules

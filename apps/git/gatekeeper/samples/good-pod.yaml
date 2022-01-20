@@ -1,0 +1,12 @@
+piVersion: v1
+kind: Pod
+metadata:
+  name: nginx-privilege-escalation-allowed
+  labels:
+    app: nginx-privilege-escalation
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    securityContext:
+      allowPrivilegeEscalation: false
