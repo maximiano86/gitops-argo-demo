@@ -1,0 +1,25 @@
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  environment: development
+
+namePrefix: dev-
+
+bases:
+- ../../base/
+
+patchesStrategicMerge:
+- service-dev.yaml
+
+patchesJSON6902:
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: static-server
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/args/0
+        value: -text="hello development edited"
