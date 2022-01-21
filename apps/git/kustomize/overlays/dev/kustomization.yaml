@@ -22,4 +22,4 @@ patchesJSON6902:
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/args/0
-        value: -text="hello development edited"
+        value: -text="hello development"
