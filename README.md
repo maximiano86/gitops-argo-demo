@@ -122,7 +122,7 @@ spec:
     server: https://kubernetes.default.svc 
   project: default
   source:
-    repoURL: 'https://github.com/maximianobnymellon/argo-vault-demo'
+    repoURL: 'https://github.com/maximiano86/gitops-argo-demo'
     targetRevision: HEAD
     path: apps/git/nginx/manifests
 
